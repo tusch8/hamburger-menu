@@ -1,0 +1,151 @@
+:where(button) {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.hidden {
+  clip: rect(0, 0, 0, 0) !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+body:has(.nav.is-open) {
+  overflow: hidden;
+}
+
+.header {
+  --duration: 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: lightgray;
+}
+
+.hamburger {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 1px solid;
+  background: white;
+}
+.hamburger.is-open .hamburger-icon {
+  background: transparent;
+}
+.hamburger.is-open .hamburger-icon::before {
+  top: 0;
+  rotate: 135deg;
+}
+.hamburger.is-open .hamburger-icon::after {
+  top: 0;
+  rotate: -135deg;
+}
+@media (768px <= width) {
+  .hamburger {
+    display: none;
+  }
+}
+
+.hamburger-icon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  width: 28px;
+  height: 1px;
+  background: black;
+  -webkit-transition: all var(--duration);
+  transition: all var(--duration);
+}
+.hamburger-icon::before, .hamburger-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: black;
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+.hamburger-icon::before {
+  top: -9px;
+}
+.hamburger-icon::after {
+  top: 9px;
+}
+
+@media (width < 768px) {
+  .nav {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background: #fff;
+    background: lightgray;
+    -webkit-transition: opacity var(--duration), visibility var(--duration);
+    transition: opacity var(--duration), visibility var(--duration);
+  }
+  .nav.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@media (width < 768px) {
+  .nav-list {
+    padding: 50px;
+  }
+}
+@media (768px <= width) {
+  .nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 30px;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+}
+
+.overlay {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-transition: opacity var(--duration), visibility var(--duration);
+  transition: opacity var(--duration), visibility var(--duration);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+.overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+@media (768px <= width) {
+  .overlay {
+    display: none;
+  }
+}

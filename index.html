@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ハンバーガーメニュー</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/script.js" defer></script>
+</head>
+
+<body>
+
+	<header class="header">
+		<button class="hamburger" type="button" data-nav-trigger>
+			<span class="hamburger-icon">
+				<span class="hidden">メニューを開閉する</span>
+			</span>
+		</button>
+		<nav class="nav" data-nav>
+			<ul role="list" class="nav-list">
+				<li>
+					<a href="#">メニュー1</a>
+				</li>
+				<li>
+					<a href="#">メニュー2</a>
+				</li>
+				<li>
+					<a href="#">メニュー3</a>
+				</li>
+				<li>
+					<a href="#">メニュー4</a>
+				</li>
+				<li>
+					<a href="#">メニュー5</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="overlay" data-nav-overlay tabindex="0"></div>
+	</header>
+
+	<h1 style="margin-top: 80px;">ハンバーガーメニュー</h1>
+	<p>SPのみハンバーガーメニューにする</p>
+
+	<div style="margin-top: 300px; height: 1000px;">
+		<p>メニューを開いているときフォーカスがあたらない（ナビ内でフォーカスがループする）</p>
+		<button>ボタン</button>
+		<a href="">リンク</a>
+	</div>
+
+</body>
+
+</html>
